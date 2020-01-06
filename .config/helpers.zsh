@@ -17,7 +17,6 @@ bindkey -s '^o' 'lfcd\n'
 c() {
   local dir=${1:-$PWD}
   if [ -d "${dir}" ]; then
-    echo "${dir}"
     ls -1A ${dir} | fzf | xargs -I ox code "${dir}/"ox
   else
     echo "${dir} not found"
