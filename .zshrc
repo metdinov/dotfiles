@@ -32,6 +32,9 @@ export EDITOR=$(which vim)
 unsetopt CORRECT
 
 # Erlang & Elixir
+# Output Unicode strings and enable shell history
+export ERL_AFLAGS="+pc unicode -kernel shell_history enabled"
+
 . /Users/jamoroso/.kerl/installs/22.1/activate
 test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
 
