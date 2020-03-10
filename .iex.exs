@@ -10,7 +10,7 @@ IEx.configure(
     syntax_colors: [
       number: :light_yellow,
       atom: :light_cyan,
-      string: :light_black,
+      string: IO.ANSI.color(140),
       boolean: :red, 
       nil: [:magenta, :bright],
     ],

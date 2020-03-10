@@ -12,6 +12,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Zsh Autosuggestions color
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=110'
+
 export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin:$PATH"
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -48,6 +51,9 @@ export FZF_DEFAULT_COMMAND='rg --files'
 # OpenSSL link flags
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+# Catalina SDK path
+export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
 
 # opam configuration
 test -r /Users/jamoroso/.opam/opam-init/init.zsh && . /Users/jamoroso/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
