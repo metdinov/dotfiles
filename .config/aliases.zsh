@@ -55,7 +55,7 @@ alias ga='git add'
 alias gu='git add -u'
 alias gp='git pull --rebase'
 alias gup='git push'
-
+alias gdm='git branch --merged | grep -v `git rev-parse --abbrev-ref HEAD` | xargs git branch -D' 
 
 # kubectl
 alias k='kubectl'
