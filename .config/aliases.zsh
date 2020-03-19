@@ -39,7 +39,6 @@ alias v='f -e vim' 	 # quick opening files with vim
 # git
 alias g='git'
 alias gs='git status'
-alias gd='git diff --color | diff-so-fancy | less'
 alias gds='git diff --staged --color | diff-so-fancy | less'
 alias gst='git stash'
 alias gl='git --no-pager log --pretty=oneline --abbrev-commit -n 15'
@@ -55,7 +54,7 @@ alias ga='git add'
 alias gu='git add -u'
 alias gp='git pull --rebase'
 alias gup='git push'
-alias gdm='git branch --merged | grep -v -e `git rev-parse --abbrev-ref HEAD`" | xargs git branch -D' 
+alias gdm='git branch --merged | grep -v -e `git rev-parse --abbrev-ref HEAD` | xargs git branch -D' 
 alias gdg='git branch -vv | grep ": gone]" | xargs git branch -D' 
 
 # kubectl

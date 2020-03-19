@@ -102,6 +102,12 @@ function gf() {
 	fi;
 }
 
+# Better git diff
+
+function gd() {
+	git diff --color "$@" | diff-so-fancy | less
+}
+
 # colors, a lot of colors!
 function clicolors() {
     i=1
