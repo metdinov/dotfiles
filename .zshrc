@@ -15,7 +15,11 @@ compinit
 # Zsh Autosuggestions color
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=110'
 
+# Add Anaconda to $PATH
 export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin:$PATH"
+
+# Add Cargo to $PATH
+export PATH="$PATH:$HOME/.cargo/bin"
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
