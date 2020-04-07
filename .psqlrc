@@ -2,7 +2,7 @@
 \set QUIET on
 
 -- nicer rendering for null
-\pset null '❌ '
+\pset null '❌ ' 
 
 -- nicer tables
 \pset linestyle unicode
@@ -11,7 +11,7 @@
 \timing
 
 -- uncomment to disable default pager
-# \pset pager off
+-- \pset pager off
 
 -- automatically switch to \x for large outputs
 \x auto
@@ -34,3 +34,4 @@
 
 -- output back on
 \set QUIET off
+
