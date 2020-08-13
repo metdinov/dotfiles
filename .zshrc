@@ -21,6 +21,11 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin
 # Add Cargo to $PATH
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Go env setup
+export GOPATH="${HOME}/.go"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -64,3 +69,15 @@ test -r /Users/jamoroso/.opam/opam-init/init.zsh && . /Users/jamoroso/.opam/opam
 
 # direnv hook
 eval "$(direnv hook zsh)"
+
+# OpenJDK
+export PATH="/usr/local/opt/openjdk/bin:$PATH"
+
+# Android SDK
+export ANT_HOME="/usr/local/opt/ant"
+export MAVEN_HOME="/usr/local/opt/maven"
+export GRADLE_HOME="/usr/local/opt/gradle"
+export ANDROID_HOME="/Users/jamoroso/Library/Android/sdk/"
+
+# asdf completions
+. /usr/local/opt/asdf/asdf.sh

@@ -32,3 +32,6 @@ syntax on
 " The mapleader has to be set before vundle starts loading all
 " the plugins.
 let mapleader=","
+
+" Allow clipboard access to vim
+set clipboard=unnamed

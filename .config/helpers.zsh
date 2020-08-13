@@ -92,22 +92,6 @@ function port() {
 	lsof -i:$1
 }
 
-# Git command to find files altered by some commit. Defaults to using last commit.
-# USAGE: $ gf <commit_id>
-function gf() {
-	if [[ -n "$@" ]]; then
-		git diff-tree --no-commit-id --name-only -r "$@";
-	else
-		git diff-tree --no-commit-id --name-only -r HEAD;
-	fi;
-}
-
-# Better git diff
-
-function gd() {
-	git diff --color "$@" | diff-so-fancy | less
-}
-
 # colors, a lot of colors!
 function clicolors() {
     i=1

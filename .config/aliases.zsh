@@ -5,6 +5,9 @@
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 
 # system
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias cp='cp -iv'
 alias ports='lsof -i -n -P | less'
 alias htop='htop -t'
@@ -57,6 +60,22 @@ alias gup='git push'
 alias gdm='git branch --merged | grep -v -e `git rev-parse --abbrev-ref HEAD` | xargs git branch -D' 
 alias gdg='git branch -vv | grep ": gone]" | xargs git branch -D' 
 
+# Git command to find files altered by some commit. Defaults to using last commit.
+# USAGE: $ gf <commit_id>
+function gf() {
+        if [[ -n "$@" ]]; then
+                git diff-tree --no-commit-id --name-only -r "$@";
+        else
+                git diff-tree --no-commit-id --name-only -r HEAD;
+        fi;
+}
+
+# Better git diff
+
+function gd() {
+        git diff --color "$@" | diff-so-fancy | less
+}
+
 # kubectl
 alias k='kubectl'
 alias kg='kubectl get'
@@ -69,3 +88,14 @@ alias kx='kubectl exec'
 alias kpf='kubectl port-forward'
 alias bb='kubectl run busybox --image=busybox:1.28 --rm -it --restart=Never --command --'
 alias bcurl='kubectl run busybox-curl --image=radial/busyboxplus:curl -it --rm --restart=Never --command -- curl -s'
+
+# get resources in a given node
+function krn() {
+	case "$#" in
+	1) kubectl get pods --all-namespaces -o wide --field-selector spec.nodeName="$1" ;;
+	2) kubectl get "$1" --all-namespaces -o wide --field-selector spec.nodeName="$2" ;;
+	*) echo "Wrong number of arguments"
+	   return 1
+	   ;;
+	esac
+}
