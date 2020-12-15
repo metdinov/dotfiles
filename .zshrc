@@ -21,6 +21,9 @@ export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin
 # Add Cargo to $PATH
 export PATH="$PATH:$HOME/.cargo/bin"
 
+# Add Ponyup to $PATH
+export PATH="$PATH:$HOME/.local/share/ponyup/bin"
+
 # Go env setup
 export GOPATH="${HOME}/.go"
 export GOROOT="/usr/local/opt/go/libexec"

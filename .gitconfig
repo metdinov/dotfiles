@@ -7,6 +7,11 @@
 	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
 	hide = update-index --assume-unchanged
 	unhide = update-index --no-assume-unchanged
+	uncommit = reset --soft HEAD~1
+	recommit = commit --amend --no-edit
+	yolo = push origin --force-with-lease HEAD
+	recent = for-each-ref --sort='-authordate:iso8601' --format='%(authordate:relative)%09%(refname:short)%09%(authorname)' refs/heads
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
 	editor = vim
 [fetch]
