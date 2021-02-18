@@ -13,6 +13,7 @@ alias ports='lsof -i -n -P | less'
 alias htop='htop -t'
 alias myip="curl http://ipecho.net/plain; echo"
 alias less='less -R'
+alias serve='python3 -m http.server'
 
 # get top process eating memory
 alias mem5='ps aux | sort -nr -k 4 | head -5'
