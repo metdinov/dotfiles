@@ -14,5 +14,10 @@
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
 	editor = vim
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [fetch]
 	prune = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[init]
+	defaultBranch = master

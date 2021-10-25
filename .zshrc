@@ -15,6 +15,8 @@ compinit
 # Zsh Autosuggestions color
 # export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=110'
 
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+
 # Add Anaconda to $PATH
 export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin:$PATH"
 
@@ -25,9 +27,9 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/share/ponyup/bin"
 
 # Go env setup
-export GOPATH="${HOME}/.go"
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+# export GOPATH="${HOME}/.go"
+# export GOROOT="/usr/local/opt/go/libexec"
+# export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
@@ -50,11 +52,6 @@ unsetopt CORRECT
 # Output Unicode strings and enable shell history
 export ERL_AFLAGS="+pc unicode -kernel shell_history enabled"
 
-. /Users/jamoroso/.kerl/installs/22.1/activate
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
-
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # fzf settings
 export FZF_DEFAULT_OPTS='--reverse --height=40%' 
 # export FZF_DEFAULT_OPTS='--reverse --height=40% --preview="cat {}" --preview-window=right:60%:wrap'
@@ -63,9 +60,6 @@ export FZF_DEFAULT_COMMAND='rg --files'
 # OpenSSL link flags
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-
-# Catalina SDK path
-export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
 
 # opam configuration
 test -r /Users/jamoroso/.opam/opam-init/init.zsh && . /Users/jamoroso/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -83,4 +77,31 @@ export GRADLE_HOME="/usr/local/opt/gradle"
 export ANDROID_HOME="/Users/jamoroso/Library/Android/sdk/"
 
 # asdf completions
-. /usr/local/opt/asdf/asdf.sh
+. /opt/homebrew/opt/asdf/asdf.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# gcloud completions
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/jamoroso/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/jamoroso/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/jamoroso/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/jamoroso/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+[ -f "/Users/jamoroso/.ghcup/env" ] && source "/Users/jamoroso/.ghcup/env" # ghcup-env
+
+eval "$(pyenv init -)"

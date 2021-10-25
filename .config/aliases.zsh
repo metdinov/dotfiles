@@ -43,7 +43,8 @@ alias v='f -e vim' 	 # quick opening files with vim
 # git
 alias g='git'
 alias gs='git status'
-alias gds='git diff --staged --color | diff-so-fancy | less'
+alias gd='git diff'
+alias gds='git diff --staged' 
 alias gst='git stash'
 alias gl='git --no-pager log --pretty=format:'\''%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'' --abbrev-commit -n 15'
 alias gc='git commit'
@@ -58,7 +59,7 @@ alias ga='git add'
 alias gu='git add -u'
 alias gp='git pull --rebase'
 alias gup='git push'
-alias gdm='git branch --merged | grep -v -e `git rev-parse --abbrev-ref HEAD` | xargs git branch -D' 
+alias gdm='git checkout -q master && git fetch -q --prune && git branch -vv | awk "/: gone]/{print $1}" | cut -d" " -f3 | xargs git branch -D'
 alias gdg='git branch -vv | grep ": gone]" | xargs git branch -D' 
 
 # Git command to find files altered by some commit. Defaults to using last commit.
@@ -69,12 +70,6 @@ function gf() {
         else
                 git diff-tree --no-commit-id --name-only -r HEAD;
         fi;
-}
-
-# Better git diff
-
-function gd() {
-        git diff --color "$@" | diff-so-fancy | less
 }
 
 # kubectl
