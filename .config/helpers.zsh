@@ -1,5 +1,5 @@
-# Reload .zshrc pressing ctrl-a
-bindkey -s '^a' 'source ~/.zshrc\n'
+# Reload .zshrc pressing ctrl-k r
+bindkey -s '^kr' '. ~/.zshrc\n'
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {

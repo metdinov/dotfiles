@@ -39,6 +39,16 @@ alias sd='fasd -sid'     # interactive directory selection
 alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias v='f -e vim' 	 # quick opening files with vim
+alias j='fasd_cd -i'
+
+function fasd_cd {
+  local fasd_ret="$(fasd -d "$@")"
+  if [[ -d "$fasd_ret" ]]; then
+    cd "$fasd_ret"
+  else
+    print "$fasd_ret"
+  fi
+}
 
 # git
 alias g='git'
