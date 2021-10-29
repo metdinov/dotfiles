@@ -1,6 +1,9 @@
 # Reload .zshrc pressing ctrl-k r
 bindkey -s '^kr' '. ~/.zshrc\n'
 
+# Expand alias with ctrl-space
+bindkey "^ " _expand_alias
+
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
     tmp="$(mktemp)"
