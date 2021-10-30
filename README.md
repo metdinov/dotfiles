@@ -2,7 +2,7 @@
 
 My dotfiles repo.
 
-Zsh aliases, helpers, custom Prezto (p10k) prompt with fasd enabled.
+Zsh aliases, helpers, custom [Zim](https://zimfw.sh/docs/install) (p10k) prompt with fasd enabled.
 iEx (Elixir) and Erlang shell init scripts.
 
 ## Setup
