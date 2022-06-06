@@ -1,5 +1,6 @@
 -module(user_default).
 -compile(export_all).
+-compile(nowarn_export_all).
 
 -spec all_modules() -> module().
 all_modules() ->

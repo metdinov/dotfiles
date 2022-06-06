@@ -159,6 +159,9 @@ export FZF_DEFAULT_COMMAND='rg --files'
 # direnv hook
 eval "$(direnv hook zsh)"
 
+# zoxide init
+eval "$(zoxide init --cmd j zsh)"
+
 # Set default editor
 export EDITOR=$(which vim)
 
@@ -191,3 +194,4 @@ eval "$(pyenv init -)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

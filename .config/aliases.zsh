@@ -30,25 +30,17 @@ alias dir10='du -cksh * | sort -hr | head -n 10'
 # :facepalm:
 alias cls='clear'
 
-# fasd
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias v='f -e vim' 	 # quick opening files with vim
-alias j='fasd_cd -i'
+# copy uuid4
+alias uuid='uuidgen | tr -d "\n" | pbcopy'
 
-function fasd_cd {
-  local fasd_ret="$(fasd -d "$@")"
-  if [[ -d "$fasd_ret" ]]; then
-    cd "$fasd_ret"
-  else
-    print "$fasd_ret"
-  fi
-}
+# jq | less
+alias jql='jq -C | less -R'
+
+# sloc count
+alias loc='scc --no-cocomo'
+
+# zoxide 
+# alias v='z > vim' 	 # quick opening files with vim
 
 # git
 alias g='git'
@@ -60,7 +52,8 @@ alias gl='git --no-pager log --pretty=format:'\''%Cred%h%Creset%C(yellow)%d%Cres
 alias gc='git commit'
 alias gco='git checkout'
 alias gcm='git checkout master'
-alias gb='git branch -v'
+alias gb='git checkout $(git branch | fzf)'
+alias gba='git checkout --track $(git branch -r | fzf)'
 alias gcb='git checkout -b'
 alias gr='git reset'
 alias grf='git checkout HEAD --'
@@ -81,6 +74,14 @@ function gf() {
                 git diff-tree --no-commit-id --name-only -r HEAD;
         fi;
 }
+
+# docker
+alias d='docker' 
+alias dc='docker compose'
+alias dcup='docker compose up'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dcl='docker compose logs'
 
 # kubectl
 alias k='kubectl'
