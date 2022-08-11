@@ -1,2 +1,0 @@
-Home = os:get_env_var("HOME").
-shell_default:c(Home ++ "/user_default.erl").

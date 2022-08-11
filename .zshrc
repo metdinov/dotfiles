@@ -131,10 +131,10 @@ fi
 # Environment
 # -----------------
 
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 
 # Add Anaconda to $PATH
-# export PATH="$HOME/.local/bin:$HOME/bin:/usr/local/anaconda3/bin:/usr/local/sbin:$PATH"
+# export PATH="/opt/homebrew/anaconda3/bin:$PATH"  # commented out by conda initialize
 
 # Add Cargo to $PATH
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -194,4 +194,20 @@ eval "$(pyenv init -)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
