@@ -142,6 +142,9 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # Add Ponyup to $PATH
 export PATH="$PATH:$HOME/.local/share/ponyup/bin"
 
+# Setup Krew plugins path
+export PATH="${PATH}:${HOME}/.krew/bin"
+
 # Go env setup
 # export GOPATH="${HOME}/.go"
 # export GOROOT="/usr/local/opt/go/libexec"
@@ -182,6 +185,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# kubectl completions
+source <(kubectl completion zsh)
+
 # gcloud completions
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
@@ -211,3 +217,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"

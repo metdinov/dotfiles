@@ -38,3 +38,19 @@ IEx.configure(
   ],
   width: 80
 )
+
+defmodule :_toolbox do
+  def update_config(app, key, sub_key, value) do
+    config = 
+      app
+      |> Application.get_env(key)
+      |> Keyword.put(sub_key, value)
+
+    Application.put_env(app, key, config)
+  end
+   
+
+  defdelegate exit, to: System, as: :halt
+end
+
+import :_toolbox

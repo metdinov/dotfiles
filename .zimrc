@@ -22,6 +22,8 @@ zmodule archive
 zmodule fzf
 zmodule exa
 zmodule ssh
+zmodule k
+zmodule asdf
 
 #
 # Prompt
@@ -41,6 +43,7 @@ zmodule romkatv/powerlevel10k --use degit
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions --fpath src
+zmodule taskwarrior
 # Enables and configures smart and extensive tab completion.
 # completion must be sourced after all modules that add completion definitions.
 zmodule completion
