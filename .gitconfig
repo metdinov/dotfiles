@@ -36,3 +36,9 @@
 	new = green bold
 	old = red bold
 	whitespace = red reverse
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[maintenance]
+	repo = /Users/jamoroso/work/pnc/forte_notifications_svc

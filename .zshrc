@@ -142,8 +142,11 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # Add Ponyup to $PATH
 export PATH="$PATH:$HOME/.local/share/ponyup/bin"
 
+# Pact binaries
+export PATH="$PATH:$HOME/bin/pact/bin"
+
 # Setup Krew plugins path
-export PATH="${PATH}:${HOME}/.krew/bin"
+# export PATH="${PATH}:${HOME}/.krew/bin"
 
 # Go env setup
 # export GOPATH="${HOME}/.go"
@@ -168,6 +171,9 @@ eval "$(zoxide init --cmd j zsh)"
 # Set default editor
 export EDITOR=$(which vim)
 
+# BAT theme
+export BAT_THEME="Sublime Snazzy"
+
 # -----------------
 # Sourcing
 # -----------------
@@ -189,8 +195,8 @@ export NVM_DIR="$HOME/.nvm"
 source <(kubectl completion zsh)
 
 # gcloud completions
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 [ -f "/Users/jamoroso/.ghcup/env" ] && source "/Users/jamoroso/.ghcup/env" # ghcup-env
 
@@ -200,7 +206,6 @@ eval "$(pyenv init -)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

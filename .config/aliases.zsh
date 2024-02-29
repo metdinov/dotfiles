@@ -32,7 +32,7 @@ alias cls='clear'
 alias vim='nvim'
 
 # copy uuid4
-alias uuid='uuidgen | tr -d "\n" | pbcopy'
+alias uuid="uuidgen | tr 'A-Z' 'a-z' | tr -d '\n'| pbcopy"
 
 # jq | less
 alias jql='jq -C | less -R'
@@ -40,10 +40,14 @@ alias jql='jq -C | less -R'
 # sloc count
 alias loc='scc --no-cocomo'
 
+# rg search hidden files
+alias rg='rg --hidden'
+
 # zoxide
 # alias v='z > vim' 	 # quick opening files with vim
 
 # git
+alias tig='gitui'
 alias g='git'
 alias gs='git status'
 alias gd='git diff'
@@ -63,7 +67,7 @@ alias ga='git add'
 alias gu='git add -u'
 alias gp='git pull --rebase'
 alias gup='git push'
-alias gdm='git checkout -q master && git fetch -q --prune && git branch -vv | awk "/: gone]/{print $1}" | cut -d" " -f3 | xargs git branch -D'
+alias gdm='git checkout -q main && git fetch -q --prune && git branch -vv | awk "/: gone]/{print $1}" | cut -d" " -f3 | xargs git branch -D'
 alias gdg='git branch -vv | grep ": gone]" | xargs git branch -D'
 
 # Git command to find files altered by some commit. Defaults to using last commit.
