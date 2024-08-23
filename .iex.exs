@@ -1,7 +1,8 @@
 timestamp = fn ->
-  {_date, {hour, minute, _second}} = :calendar.local_time
+  {_date, {hour, minute, _second}} = :calendar.local_time()
+
   [hour, minute]
-  |> Enum.map(&(String.pad_leading(Integer.to_string(&1), 2, "0")))
+  |> Enum.map(&String.pad_leading(Integer.to_string(&1), 2, "0"))
   |> Enum.join(":")
 end
 
@@ -12,24 +13,24 @@ IEx.configure(
       atom: :light_cyan,
       string: IO.ANSI.color(140),
       boolean: :red,
-      nil: [:magenta, :bright],
+      nil: [:magenta, :bright]
     ],
     ls_directory: :cyan,
     ls_device: :yellow,
     doc_code: :green,
     doc_inline_code: :magenta,
     doc_headings: [:cyan, :underline],
-    doc_title: [:cyan, :bright, :underline],
+    doc_title: [:cyan, :bright, :underline]
   ],
   default_prompt:
-    "#{IO.ANSI.green}%prefix#{IO.ANSI.reset} " <>
-    "[#{IO.ANSI.magenta}#{timestamp.()}#{IO.ANSI.reset} " <>
-    ":: #{IO.ANSI.cyan}%counter#{IO.ANSI.reset}] #{IO.ANSI.yellow}λ ⇒ #{IO.ANSI.reset}",
+    "#{IO.ANSI.green()}%prefix#{IO.ANSI.reset()} " <>
+      "[#{IO.ANSI.magenta()}#{timestamp.()}#{IO.ANSI.reset()} " <>
+      ":: #{IO.ANSI.cyan()}%counter#{IO.ANSI.reset()}] #{IO.ANSI.yellow()}λ ⇒ #{IO.ANSI.reset()}",
   alive_prompt:
-    "#{IO.ANSI.green}%prefix#{IO.ANSI.reset} " <>
-    "(#{IO.ANSI.yellow}%node#{IO.ANSI.reset}) " <>
-    "[#{IO.ANSI.magenta}#{timestamp.()}#{IO.ANSI.reset} " <>
-    ":: #{IO.ANSI.cyan}%counter#{IO.ANSI.reset}] #{IO.ANSI.yellow}λ ⇒#{IO.ANSI.reset}",
+    "#{IO.ANSI.green()}%prefix#{IO.ANSI.reset()} " <>
+      "(#{IO.ANSI.yellow()}%node#{IO.ANSI.reset()}) " <>
+      "[#{IO.ANSI.magenta()}#{timestamp.()}#{IO.ANSI.reset()} " <>
+      ":: #{IO.ANSI.cyan()}%counter#{IO.ANSI.reset()}] #{IO.ANSI.yellow()}λ ⇒#{IO.ANSI.reset()}",
   history_size: 50,
   inspect: [
     pretty: true,
@@ -39,7 +40,7 @@ IEx.configure(
   width: 80
 )
 
-defmodule :_toolbox do
+defmodule J do
   @doc "Adds a (nested) key inside a configuration"
   def update_config(app, key, sub_key, value) do
     config =
@@ -55,7 +56,22 @@ defmodule :_toolbox do
   @doc "Disable logger"
   def logoff do
     Logger.configure(level: :none)
+    # alternative
+    # :logger.remove_handler(:default)
+  end
+
+  def copy(term) do
+    text =
+      if is_binary(term) do
+        term
+      else
+        inspect(term, limit: :infinity, pretty: true)
+      end
+
+    port = Port.open({:spawn, "pbcopy"}, [])
+    true = Port.command(port, text)
+    true = Port.close(port)
+
+    :ok
   end
 end
-
-import :_toolbox
