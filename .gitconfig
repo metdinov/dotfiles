@@ -5,6 +5,7 @@
 	email = juan@northernlabs.ca
 [alias]
 	tree = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+	diffs = -c core.pager='delta --side-by-side' diff
 	hide = update-index --assume-unchanged
 	unhide = update-index --no-assume-unchanged
 	uncommit = reset --soft HEAD~1
@@ -14,11 +15,13 @@
 	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 [core]
 	editor = vim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
+	excludesfile = /Users/jamoroso/.gitignore
+	precomposeunicode = false
 [fetch]
 	prune = true
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
 [init]
 	defaultBranch = master
 [color]
@@ -42,3 +45,7 @@
 	sort = -committerdate
 [maintenance]
 	repo = /Users/jamoroso/work/pnc/forte_notifications_svc
+[delta]
+	navigate = true
+#	side-by-side = true
+	line-numbers = true
